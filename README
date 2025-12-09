@@ -1,1 +1,38 @@
-filler
+# Options Strategy Backtester
+
+A modular Python framework for pricing, simulating, and analysing complex multi-leg option strategies with production-oriented structure.
+
+## Features
+- OOP design with pluggable pricing models (Black-Scholes, Bachelier, surface bump-and-revalue).
+- Market data/vol surface abstraction with interpolation.
+- Strategy and portfolio abstractions supporting common spreads and butterflies.
+- Backtest engine computing P&L, Greeks, P&L attribution, and rolling metrics.
+- Visualization helpers for P&L, drawdown, attribution, and risk profiles.
+- Breakeven analysis scaffold.
+
+## Quickstart
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   or install key packages directly: `pip install numpy pandas scipy plotly pytest`.
+
+2. Run unit tests:
+   ```bash
+   pytest
+   ```
+
+3. Explore the API by composing market data, pricing models, strategies, and running `BacktestEngine`.
+
+## Structure
+- `backtester/data.py`: Market data and vol-surface containers.
+- `backtester/instruments.py`: Option contracts, legs, strategies, and portfolios.
+- `backtester/models.py`: Pricing model interface and implementations.
+- `backtester/backtest.py`: Backtest engine and configuration.
+- `backtester/metrics.py`: Performance metrics, P&L attribution, and breakeven analytics.
+- `backtester/visualize.py`: Plotting utilities.
+- `backtester/tests/`: Unit tests for pricing and metrics.
+
+## Notes
+- The framework is model-pluggable; extend `PricingModel` for advanced dynamics (e.g., Heston/SABR).
+- Greeks attribution and breakevens leverage the same abstractions and can be tailored to your data.
